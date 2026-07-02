@@ -1,8 +1,8 @@
 import type { SearchMovieItem } from '@/types/movie';
-import { CarouselContent, CarouselItem } from '../../../ui/carousel';
 import { IMAGE_SIZES } from '@/lib/constants';
-import { getImageUrl } from '@/lib/utils/cn';
 import MovieCard from './MovieCard';
+import { getImageUrl } from '@/lib/utils/getImageUrl';
+import { CarouselContent, CarouselItem } from '@/components/ui/carousel';
 
 type TrendingMovieCarouselProps = {
   movies: SearchMovieItem[];

@@ -4,7 +4,7 @@ import { persist } from 'zustand/middleware';
 // import { Movie } from '@/types/movie';
 
 // TODO: Define your store state interface
-interface MovieStore {
+type MovieStore = {
   // TODO: Add state properties
   // Examples: favorites, watchlist, selectedMovie, etc.
   // TODO: Add action methods
@@ -13,7 +13,7 @@ interface MovieStore {
   totalItems: number;
   addFavorite: (movie: SearchMovieItem) => void;
   removeFavorite: (movieId: number) => void;
-}
+};
 
 // TODO: Create Zustand store
 // Reference: https://zustand.docs.pmnd.rs/getting-started/introduction

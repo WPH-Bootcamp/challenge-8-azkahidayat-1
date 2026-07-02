@@ -5,7 +5,7 @@
 /* =====
    MOVIE
    ===== */
-export interface SearchMovieItem {
+export type SearchMovieItem = {
   // TODO: Add movie properties based on TMDB API response
   // Examples: id, title, overview, poster_path, etc.
   id: number;
@@ -15,16 +15,16 @@ export interface SearchMovieItem {
   vote_average: number;
   poster_path: string | null;
   backdrop_path: string | null;
-}
+};
 
-export interface MoviePaginationResponse {
+export type MoviePaginationResponse = {
   // TODO: Add pagination properties
   // Examples: page, results, total_pages, total_results
   page: number;
   results: SearchMovieItem[];
   total_pages: number;
   total_results: number;
-}
+};
 
 // TODO: Add more types as needed (Genre, Video, etc.)
 
@@ -32,7 +32,7 @@ export interface MoviePaginationResponse {
    AGE LIMIT
    ========= */
 
-export interface ReleaseDateResponse {
+export type ReleaseDateResponse = {
   id: number;
   results: {
     iso_3166_1: string; // pick "US"
@@ -41,25 +41,25 @@ export interface ReleaseDateResponse {
       type: number;
     }[];
   }[];
-}
+};
 
 /* ====
    CAST
    ==== */
 
-export interface CreditsResponse {
+export type CreditsResponse = {
   id: number;
   cast: {
     name: string;
     character: string;
     profile_path: string;
   }[];
-}
+};
 
 /* ===========
    MOVIE VIDEO
    =========== */
-export interface VideoResponse {
+export type VideoResponse = {
   id: number;
   results: {
     site: string;
@@ -67,19 +67,19 @@ export interface VideoResponse {
     type: string;
     official: boolean;
   }[];
-}
+};
 
 /* ============
    MOVIE DETAIL
    ============ */
-export interface MovieDetailResponse extends SearchMovieItem {
+export type MovieDetailResponse = SearchMovieItem & {
   genres: { id: number; name: string }[];
-}
+};
 
-export interface MovieFullDetails {
+export type MovieFullDetails = {
   detail: MovieDetailResponse;
   genre: string | 'Unknown';
   ageLimit: string | 'N/A';
   cast: CreditsResponse['cast'];
   videoKey: string | undefined;
-}
+};

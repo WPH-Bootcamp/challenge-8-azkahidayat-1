@@ -1,6 +1,6 @@
 import Container from '@/components/layouts/Container';
 import { IMAGE_SIZES } from '@/lib/constants';
-import { getImageUrl } from '@/lib/utils/cn';
+import { getImageUrl } from '@/lib/utils/getImageUrl';
 
 type CastProps = {
   cast: {

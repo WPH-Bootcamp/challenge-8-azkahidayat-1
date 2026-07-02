@@ -1,8 +1,8 @@
 import type { MovieFullDetails } from '@/types/movie';
 import { Calendar1Icon, type LucideIcon } from 'lucide-react';
-import WatchTrailerButton from '../ui/WatchTrailerButton';
 import FavoriteButton from '../ui/FavoriteButton';
-import StatCard from '../../../common/StatCard';
+import StatCard from '@/components/common/StatCard';
+import WatchTrailerButton from '../ui/WatchTrailerButton';
 
 type MovieDetailGridProps = {
   data: MovieFullDetails;

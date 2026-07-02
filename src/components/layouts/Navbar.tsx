@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Logo from '../common/Logo';
 import OffCanvasMenu from '../features/navigation/OffCanvasMenu';
-import OffCanvasSearch from '../common/OffCanvasSearch';
+import OffCanvasSearch from '../features/search/OffCanvasSearch';
 import SearchBar from '../features/search/SearchBar';
 import Container from './Container';
 import { Link } from 'react-router-dom';

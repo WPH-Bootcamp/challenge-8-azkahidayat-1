@@ -168,7 +168,7 @@ function CarouselItem({ className, ...props }: React.ComponentProps<'div'>) {
 function CarouselPrevious({
   className,
   variant = 'outline',
-  size = 'icon-sm',
+  size = 'icon-lg',
   ...props
 }: React.ComponentProps<typeof Button>) {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
@@ -189,7 +189,7 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeftIcon />
+      <ChevronLeftIcon className='size-5 lg:size-7' />
       <span className='sr-only'>Previous slide</span>
     </Button>
   );
@@ -219,7 +219,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRightIcon />
+      <ChevronRightIcon className='size-5 lg:size-7' />
       <span className='sr-only'>Next slide</span>
     </Button>
   );
