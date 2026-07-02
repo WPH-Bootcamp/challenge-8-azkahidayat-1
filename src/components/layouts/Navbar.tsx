@@ -4,7 +4,7 @@ import OffCanvasMenu from '../features/navigation/OffCanvasMenu';
 import OffCanvasSearch from '../features/search/OffCanvasSearch';
 import SearchBar from '../features/search/SearchBar';
 import Container from './Container';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { cn } from '@/lib/utils/cn';
 
 type NavBarProps = {
@@ -41,12 +41,22 @@ const Navbar = ({ className }: NavBarProps) => {
         <div className='flex items-center gap-8xl'>
           <Logo />
           <div className='hidden md:flex md:gap-6xl'>
-            <Link to='/'>
-              <p className='font-regular text-neutral-25 text-md'>Home</p>
-            </Link>
-            <Link to='/favorite'>
-              <p className='font-regular text-neutral-25 text-md'>Favorite</p>
-            </Link>
+            <NavLink
+              to='/'
+              className={({ isActive }: { isActive: boolean }) =>
+                `text-md hover:underline ${isActive ? 'text-primary-300 font-bold' : 'text-neutral-25 font-regular'}`
+              }
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to='/favorite'
+              className={({ isActive }: { isActive: boolean }) =>
+                `text-md hover:underline ${isActive ? 'text-primary-300 font-bold' : 'text-neutral-25 font-regular'}`
+              }
+            >
+              Favorite
+            </NavLink>
           </div>
         </div>
         <div className='flex gap-3xl'>

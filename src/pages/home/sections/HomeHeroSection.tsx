@@ -11,8 +11,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { fadeInOut, fadeInOutFromBottom } from '@/motions';
 import { Skeleton } from '@/components/ui/skeleton';
 
+const randomIndex = Math.floor(Math.random() * 20);
 const HomeHeroSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(randomIndex);
   const [imageLoaded, setImageLoaded] = useState(false);
   const navigate = useNavigate();
   const {
