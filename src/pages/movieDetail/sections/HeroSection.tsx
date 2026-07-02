@@ -6,6 +6,8 @@ import { IMAGE_SIZES } from '@/lib/constants';
 import { getFormattedDate } from '@/lib/utils/getFormattedDate';
 import { getImageUrl } from '@/lib/utils/getImageUrl';
 import type { MovieFullDetails } from '@/types/movie';
+import { motion } from 'framer-motion';
+import { fadeIn } from '@/motions';
 
 type HeroSectionProps = {
   data: MovieFullDetails;
@@ -35,7 +37,12 @@ const HeroSection = ({ data }: HeroSectionProps) => {
 
   return (
     <section id='hero-detail-page'>
-      <div className='relative w-full h-98 lg:h-202.5 -z-1'>
+      <motion.div
+        className='relative w-full h-98 lg:h-202.5 -z-1'
+        variants={fadeIn}
+        initial='hidden'
+        animate='visible'
+      >
         <img
           src={backdropImageUrl}
           alt={`${data.detail.title} image`}
@@ -45,7 +52,7 @@ const HeroSection = ({ data }: HeroSectionProps) => {
           position='bottom'
           className='h-55.25 lg:h-auto lg:inset-y-0'
         />
-      </div>
+      </motion.div>
       <Container>
         <MovieDetailGrid
           data={data}

@@ -7,6 +7,8 @@ import {
 } from '@/components/ui/carousel';
 import { useTrendingMovies } from '@/hooks/useMovies';
 import TrendingNowSkeleton from './TrendingNowSkeleton';
+import { motion } from 'framer-motion';
+import { fadeInFromTop } from '@/motions';
 
 const TrendingNowSection = () => {
   const { data, isLoading, error } = useTrendingMovies();
@@ -20,12 +22,17 @@ const TrendingNowSection = () => {
       id='trending-now-home-page'
       className='relative py-5xl flex flex-col gap-3xl lg:gap-5xl'
     >
-      <div className='px-xl lg:px-8xl xl:px-11xl'>
+      <motion.div
+        className='px-xl lg:px-8xl xl:px-11xl'
+        variants={fadeInFromTop}
+        initial='hidden'
+        animate='visible'
+      >
         <h2 className='font-bold text-display-xs lg:text-display-lg'>
           Trending Now
         </h2>
-      </div>
-      <div className='relative flex overflow-x-hidden px-xl lg:px-8xl xl:px-11xl'>
+      </motion.div>
+      <div className='relative flex overflow-hidden px-xl lg:px-8xl xl:px-11xl'>
         <Carousel
           opts={{
             align: 'start',

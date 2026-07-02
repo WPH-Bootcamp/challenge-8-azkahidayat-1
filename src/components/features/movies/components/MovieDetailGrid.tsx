@@ -3,6 +3,8 @@ import { Calendar1Icon, type LucideIcon } from 'lucide-react';
 import FavoriteButton from '../ui/FavoriteButton';
 import StatCard from '@/components/common/StatCard';
 import WatchTrailerButton from '../ui/WatchTrailerButton';
+import { motion } from 'framer-motion';
+import { fadeInFromTop, staggerContainer } from '@/motions';
 
 type MovieDetailGridProps = {
   data: MovieFullDetails;
@@ -24,32 +26,50 @@ const MovieDetailGrid = ({
   stats,
 }: MovieDetailGridProps) => {
   return (
-    <div className='grid grid-cols-[auto_1fr] gap-x-xl gap-y-3xl -mt-30.75 lg:-mt-99.5'>
-      <div className='max-w-29 rounded-xl overflow-hidden lg:max-w-65 lg:row-span-3'>
-        <img src={posterImageUrl} alt={`${data.detail.title} poster`} />
-      </div>
+    <motion.div variants={staggerContainer} initial='hidden' animate='visible'>
+      <div className='grid grid-cols-[auto_1fr] gap-x-xl gap-y-3xl -mt-30.75 lg:-mt-99.5'>
+        <motion.div
+          className='max-w-29 rounded-xl overflow-hidden lg:max-w-65 lg:row-span-3'
+          variants={fadeInFromTop}
+        >
+          <img src={posterImageUrl} alt={`${data.detail.title} poster`} />
+        </motion.div>
 
-      <div className='flex flex-col gap-xs lg:gap-4xl'>
-        <p className='font-bold text-xl lg:text-display-xl'>
-          {data.detail.title}
-        </p>
-        <p className='flex text-sm gap-xs items-center lg:text-md'>
-          <Calendar1Icon />
-          {formattedDate}
-        </p>
-      </div>
+        <motion.div
+          className='flex flex-col gap-xs lg:gap-4xl'
+          variants={fadeInFromTop}
+        >
+          <p className='font-bold text-xl lg:text-display-xl'>
+            {data.detail.title}
+          </p>
+          <p className='flex text-sm gap-xs items-center lg:text-md'>
+            <Calendar1Icon />
+            {formattedDate}
+          </p>
+        </motion.div>
 
-      <div className='flex gap-xl col-span-2 items-center lg:col-span-1 lg:max-w-[288px]'>
-        {data.videoKey && <WatchTrailerButton movieId={data.detail.id} />}
-        <FavoriteButton data={data.detail} />
-      </div>
+        <motion.div
+          className='flex gap-xl col-span-2 items-center lg:col-span-1 lg:max-w-[288px]'
+          variants={fadeInFromTop}
+        >
+          {data.videoKey && <WatchTrailerButton movieId={data.detail.id} />}
+          <FavoriteButton data={data.detail} />
+        </motion.div>
 
-      <div className='col-span-2 flex gap-lg lg:gap-2xl lg:col-span-1'>
-        {stats.map((stat) => (
-          <StatCard key={stat.title} stat={stat} />
-        ))}
+        <motion.div
+          className='col-span-2 flex gap-lg lg:gap-2xl lg:col-span-1'
+          variants={staggerContainer}
+          initial='hidden'
+          animate='visible'
+        >
+          {stats.map((stat) => (
+            <motion.div className='w-full' variants={fadeInFromTop}>
+              <StatCard key={stat.title} stat={stat} />
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

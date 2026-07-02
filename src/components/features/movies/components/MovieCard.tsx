@@ -1,6 +1,7 @@
 import type { SearchMovieItem } from '@/types/movie';
 import { StarIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { motion, type Variants } from 'framer-motion';
 
 type MovieCardProps = {
   movie: SearchMovieItem;
@@ -14,10 +15,25 @@ const MovieCard = ({ movie, imageUrl, index }: MovieCardProps) => {
   function handleDetailClick(movieId: number) {
     navigate(`/movieDetail/${movieId}`);
   }
+
+  const fadeInFromTop: Variants = {
+    hidden: {
+      opacity: 0,
+      y: -20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.2, ease: 'easeOut' },
+    },
+  };
+
   return (
-    <div
-      className='py-1.5 cursor-pointer transition-transform duration-300 hover:scale-102'
+    <motion.div
+      className='py-1.5 cursor-pointer'
       onClick={() => handleDetailClick(movie.id)}
+      variants={fadeInFromTop}
+      whileHover={{ scale: 1.02 }}
     >
       <div className='relative rounded-md overflow-hidden'>
         <img src={imageUrl} alt={`${movie.title} image`} />
@@ -34,7 +50,7 @@ const MovieCard = ({ movie, imageUrl, index }: MovieCardProps) => {
           {movie.vote_average.toFixed(1)}/10
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

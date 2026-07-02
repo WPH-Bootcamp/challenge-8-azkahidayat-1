@@ -3,6 +3,7 @@ import WatchTrailerButton from '../ui/WatchTrailerButton';
 import FavoriteButton from '../ui/FavoriteButton';
 import type { SearchMovieItem } from '@/types/movie';
 import { useNavigate } from 'react-router-dom';
+import { motion, type Variants } from 'framer-motion';
 
 type MovieListCardProps = {
   posterUrl: string;
@@ -14,8 +15,23 @@ const MovieListCard = ({ posterUrl, data }: MovieListCardProps) => {
   function handleClick(movieId: number) {
     navigate(`/movieDetail/${movieId}`);
   }
+
+  const fadeInFromRight: Variants = {
+    hidden: {
+      opacity: 0,
+      x: 10,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.2, ease: 'easeInOut' },
+    },
+  };
   return (
-    <div className='grid grid-cols-[auto_1fr_auto] gap-x-xl gap-y-3xl lg:gap-x-3xl pb-4xl lg:pb-6xl hover:scale-102 transition-transform duration-300 '>
+    <motion.div
+      className='grid grid-cols-[auto_1fr_auto] gap-x-xl gap-y-3xl lg:gap-x-3xl pb-4xl lg:pb-6xl hover:scale-102 transition-transform duration-300'
+      variants={fadeInFromRight}
+    >
       {/* grid 1 */}
       <div
         className='max-w-26 rounded-md lg:max-w-45.5 lg:rounded-xl overflow-hidden lg:row-span-2 lg:order-1 cursor-pointer'
@@ -50,7 +66,7 @@ const MovieListCard = ({ posterUrl, data }: MovieListCardProps) => {
       <div className='col-span-1 lg:order-3'>
         <FavoriteButton data={data} />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

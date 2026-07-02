@@ -4,6 +4,8 @@ import FadeOverlay from '@/components/common/FadeOverlay';
 import { Button } from '@/components/ui/button';
 import { useNowPlayingMovies } from '@/hooks/useMovies';
 import NewReleaseSkeleton from './NewReleaseSkeleton';
+import { motion } from 'framer-motion';
+import { fadeInFromTop } from '@/motions';
 
 const NewReleaseSection = () => {
   const {
@@ -22,9 +24,14 @@ const NewReleaseSection = () => {
   return (
     <section id='new-release-home-page'>
       <Container className='relative py-5xl flex flex-col gap-3xl lg:gap-5xl'>
-        <h2 className='font-bold text-display-xs lg:text-display-lg'>
+        <motion.h2
+          className='font-bold text-display-xs lg:text-display-lg'
+          variants={fadeInFromTop}
+          initial='hidden'
+          animate='visible'
+        >
           New Release
-        </h2>
+        </motion.h2>
         <MovieGrid movies={movies} />
         <FadeOverlay position='bottom' className='h-100' />
         <div className='absolute bottom-33.25 left-1/2 -translate-x-1/2 w-full max-w-50 lg:max-w-57.5'>

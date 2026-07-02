@@ -4,6 +4,7 @@ import '@/styles/index.css';
 import FavoritePage from '@/pages/FavoritePage';
 import MovieDetailPage from '@/pages/movieDetail/MovieDetailPage';
 import SearchPage from '@/pages/SearchPage';
+import MotionTest from '@/test/MotionTest';
 
 function App() {
   // TODO: Setup routing dengan React Router
@@ -16,6 +17,7 @@ function App() {
       <Route path='/movieDetail/:id' element={<MovieDetailPage />} />
       <Route path='/favorite' element={<FavoritePage />} />
       <Route path='/searchMovie' element={<SearchPage />} />
+      <Route path='/motionTest' element={<MotionTest />} />
     </Routes>
   );
 }
