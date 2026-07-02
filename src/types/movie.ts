@@ -28,9 +28,9 @@ export interface MoviePaginationResponse {
 
 // TODO: Add more types as needed (Genre, Video, etc.)
 
-/** ===========================
- * AGE LIMIT
- * ============================*/
+/* =========
+   AGE LIMIT
+   ========= */
 
 export interface ReleaseDateResponse {
   id: number;
@@ -43,9 +43,9 @@ export interface ReleaseDateResponse {
   }[];
 }
 
-/** ===========================
- * CAST
- * ============================*/
+/* ====
+   CAST
+   ==== */
 
 export interface CreditsResponse {
   id: number;
@@ -56,9 +56,9 @@ export interface CreditsResponse {
   }[];
 }
 
-/** ===========================
- * MOVIE VIDEO
- * ============================*/
+/* ===========
+   MOVIE VIDEO
+   =========== */
 export interface VideoResponse {
   id: number;
   results: {
@@ -69,9 +69,9 @@ export interface VideoResponse {
   }[];
 }
 
-/** ===========================
- * MOVIE DETAIL
- * ============================*/
+/* ============
+   MOVIE DETAIL
+   ============ */
 export interface MovieDetailResponse extends SearchMovieItem {
   genres: { id: number; name: string }[];
 }
