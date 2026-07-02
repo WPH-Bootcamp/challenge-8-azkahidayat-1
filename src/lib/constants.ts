@@ -1,5 +1,7 @@
 // Constants untuk aplikasi
 
+import type { TimeWindow } from '@/services/movieService';
+
 // TODO: Define constants yang digunakan di seluruh aplikasi
 
 export const IMAGE_SIZES = {
@@ -33,9 +35,11 @@ export const STORAGE_KEYS = {
 
 export const QUERY_KEYS = {
   movies: {
+    trending: (timeWindow: TimeWindow) => ['movies', 'trendingNow', timeWindow],
     popular: (page: number) => ['movies', 'popular', page] as const,
     nowPlaying: (page: number) => ['movies', 'now-playing', page] as const,
-    details: (id: number) => ['movie', id] as const,
-    search: (query: string, page: number) => ['movies', 'search', query, page] as const,
+    search: (query: string, page: number) =>
+      ['movies', 'search', query, page] as const,
+    details: (movieId: number) => ['movie', 'movieDetails', movieId] as const,
   },
 } as const;
