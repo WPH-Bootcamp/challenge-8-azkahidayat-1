@@ -54,6 +54,7 @@ export const useSearchMovie = (keyword: string, page: number) => {
     queryFn: () => {
       return movieService.searchMovies(keyword, page);
     },
+    enabled: keyword.trim().length > 0,
   });
 };
 
