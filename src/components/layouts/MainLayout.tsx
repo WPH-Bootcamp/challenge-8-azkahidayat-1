@@ -3,13 +3,14 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 
 type MainLayoutProps = {
+  position?: 'fixed' | 'sticky';
   children: ReactNode;
 };
 
-const MainLayout = ({ children }: MainLayoutProps) => {
+const MainLayout = ({ position = 'fixed', children }: MainLayoutProps) => {
   return (
-    <div>
-      <Navbar />
+    <div className='max-w-360 m-auto'>
+      <Navbar className={position} />
       <main>{children}</main>
       <Footer />
     </div>

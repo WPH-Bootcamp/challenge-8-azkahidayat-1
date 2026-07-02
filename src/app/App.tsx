@@ -13,9 +13,9 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<HomePage />} />
-      <Route path='/detail' element={<MovieDetailPage />} />
+      <Route path='/movieDetail/:id' element={<MovieDetailPage />} />
       <Route path='/favorite' element={<FavoritePage />} />
-      <Route path='/search' element={<SearchPage />} />
+      <Route path='/searchMovie' element={<SearchPage />} />
     </Routes>
   );
 }

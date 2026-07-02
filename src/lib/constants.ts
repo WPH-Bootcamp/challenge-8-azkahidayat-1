@@ -37,7 +37,7 @@ export const QUERY_KEYS = {
   movies: {
     trending: (timeWindow: TimeWindow) => ['movies', 'trendingNow', timeWindow],
     popular: (page: number) => ['movies', 'popular', page] as const,
-    nowPlaying: (page: number) => ['movies', 'now-playing', page] as const,
+    nowPlaying: () => ['movies', 'now-playing'] as const,
     search: (query: string, page: number) =>
       ['movies', 'search', query, page] as const,
     details: (movieId: number) => ['movie', 'movieDetails', movieId] as const,

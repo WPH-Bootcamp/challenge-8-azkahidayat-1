@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 import { movieService, type TimeWindow } from '@/services/movieService';
 import { QUERY_KEYS } from '@/lib/constants';
 
@@ -36,11 +36,17 @@ export const usePopularMovies = (page: number = 1) => {
 /** ====
  * 3
  =======*/
-export const useNowPlayingMovies = (page: number = 1) => {
-  return useQuery({
-    queryKey: QUERY_KEYS.movies.nowPlaying(page),
-    queryFn: () => {
-      return movieService.getNowPlayingMovies(page);
+export const useNowPlayingMovies = () => {
+  return useInfiniteQuery({
+    queryKey: QUERY_KEYS.movies.nowPlaying(),
+    queryFn: ({ pageParam }) => {
+      return movieService.getNowPlayingMovies(pageParam);
+    },
+    initialPageParam: 1,
+    getNextPageParam: (lastPage) => {
+      if (lastPage.page >= lastPage.total_pages) return undefined;
+
+      return lastPage.page + 1;
     },
   });
 };
@@ -61,12 +67,16 @@ export const useSearchMovie = (keyword: string, page: number) => {
 /** ====
  * 5
  =======*/
-export const useMovieFullDetails = (movieId: number) => {
+export const useMovieFullDetails = (
+  movieId?: number,
+  options?: { enabled?: boolean }
+) => {
   return useQuery({
-    queryKey: QUERY_KEYS.movies.details(movieId),
+    queryKey: QUERY_KEYS.movies.details(movieId!),
     queryFn: () => {
-      return movieService.getMovieFullDetails(movieId);
+      return movieService.getMovieFullDetails(movieId!);
     },
+    enabled: !!movieId && (options?.enabled ?? true),
   });
 };
 

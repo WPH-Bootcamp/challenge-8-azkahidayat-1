@@ -13,7 +13,6 @@ interface MovieStore {
   totalItems: number;
   addFavorite: (movie: SearchMovieItem) => void;
   removeFavorite: (movieId: number) => void;
-  isFavorite: (movieId: number) => void;
 }
 
 // TODO: Create Zustand store
@@ -25,7 +24,7 @@ interface MovieStore {
 
 export const useMovieStore = create<MovieStore>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       // TODO: Initialize state and implement actions
       favorite: [],
       totalItems: 0,
@@ -40,7 +39,6 @@ export const useMovieStore = create<MovieStore>()(
           favorite: state.favorite.filter((m) => m.id !== movieId),
           totalItems: state.favorite.length - 1,
         })),
-      isFavorite: (movieId) => get().favorite.some((m) => m.id === movieId),
     }),
     { name: 'movie-favorite-storage' }
   )

@@ -20,7 +20,17 @@ export function getImageUrl(path: string, size: string = 'original'): string {
 // TODO: Add more utility functions as needed
 // Examples: formatDate, formatRuntime, etc.
 
-export function getTrailerYoutubeUrl(key: string): string {
+export function getTrailerYoutubeUrl(videoKey: string): string {
   const baseYoutubeUrl = import.meta.env.VITE_YOUTUBE_BASE_URL;
-  return `${baseYoutubeUrl}${key}`;
+  return `${baseYoutubeUrl}${videoKey}`;
+}
+
+export function getFormattedDate(date: string): string {
+  const objectDate = new Date(date);
+  const formattedDate = objectDate.toLocaleDateString('us-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+  return formattedDate;
 }

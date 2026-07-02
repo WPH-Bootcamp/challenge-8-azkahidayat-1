@@ -1,59 +1,61 @@
-import { MenuIcon, XIcon } from 'lucide-react';
-import { Button } from '../ui/button';
-import Logo from '../ui/Logo';
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet';
-import { Dialog as SheetPrimitive } from 'radix-ui';
+import { useEffect, useState } from 'react';
+import Logo from '../common/Logo';
+import OffCanvasMenu from '../common/OffCanvasMenu';
+import OffCanvasSearch from '../common/OffCanvasSearch';
+import SearchBar from '../features/SearchBar';
+import Container from './Container';
 import { Link } from 'react-router-dom';
+import { cn } from '@/lib/utils';
 
-const Navbar = () => {
+type NavBarProps = {
+  className: string;
+};
+
+const Navbar = ({ className }: NavBarProps) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    }
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isScrolled]);
+
   return (
-    <div className='flex justify-between items-center px-xl h-16'>
-      <Logo />
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button variant='ghost' size={'icon-xs'}>
-            <MenuIcon className='size-6' />
-          </Button>
-        </SheetTrigger>
-        <SheetContent className='inset-x-0'>
-          <SheetHeader className='text-neutral-25'>
-            <div className='flex justify-between items-center'>
-              <Logo />
-              <SheetPrimitive.Close data-slot='sheet-close' asChild>
-                <Button
-                  variant='ghost'
-                  className=' text-neutral-25'
-                  size='icon-xs'
-                >
-                  <XIcon className='size-6' />
-                  <span className='sr-only'>Close</span>
-                </Button>
-              </SheetPrimitive.Close>
-            </div>
-            <div className='mt-6 flex flex-col gap-xl'>
-              <SheetPrimitive.Close data-slot='sheet-close' asChild>
-                <Link to='/'>
-                  <SheetTitle className='font-regular text-md'>Home</SheetTitle>
-                </Link>
-              </SheetPrimitive.Close>
-              <SheetPrimitive.Close data-slot='sheet-close' asChild>
-                <Link to='/favorite'>
-                  <SheetTitle className='font-regular text-md'>
-                    Favorite
-                  </SheetTitle>
-                </Link>
-              </SheetPrimitive.Close>
-            </div>
-          </SheetHeader>
-        </SheetContent>
-      </Sheet>
-    </div>
+    <nav
+      className={cn(
+        'fixed top-0 inset-x-0 w-full z-50',
+        isScrolled ? 'backdrop-blur-2xl' : '',
+        className
+      )}
+    >
+      <Container className='flex justify-between items-center py-4.5 lg:py-5.5 max-w-360 m-auto'>
+        <div className='flex items-center gap-8xl'>
+          <Logo />
+          <div className='hidden md:flex md:gap-6xl'>
+            <Link to='/'>
+              <p className='font-regular text-neutral-25 text-md'>Home</p>
+            </Link>
+            <Link to='/favorite'>
+              <p className='font-regular text-neutral-25 text-md'>Favorite</p>
+            </Link>
+          </div>
+        </div>
+        <div className='flex gap-3xl'>
+          <OffCanvasSearch className='md:hidden' />
+          <OffCanvasMenu className='md:hidden' />
+          <SearchBar className='hidden md:block' />
+        </div>
+      </Container>
+    </nav>
   );
 };
 

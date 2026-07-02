@@ -24,10 +24,10 @@
      ====== */
 
   /* Primary */
-  --color-primary-100: #f3ebff;
-  --color-primary-200: #8b32ff;
-  --color-primary-300: #6600eb;
-  --color-primary-400: #160131;
+  --color-primary-100: #ead0cc;
+  --color-primary-200: #b86255;
+  --color-primary-300: #961200;
+  --color-primary-400: #640d00;
 
   /* Neutral */
   --color-neutral-25: #fdfdfd;
@@ -198,7 +198,7 @@
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
+  --border: #252b37;
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
   --chart-1: oklch(0.87 0 0);

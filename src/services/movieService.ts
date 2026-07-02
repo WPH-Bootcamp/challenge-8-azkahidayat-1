@@ -57,7 +57,7 @@ export const movieService = {
 
   searchMovies: async (
     query: string,
-    page: number
+    page: number = 1
   ): Promise<MoviePaginationResponse> => {
     const { data } = await api.get<MoviePaginationResponse>(
       `/search/movie?query=${query}&page=${page}`
@@ -94,7 +94,7 @@ export const movieService = {
       (release) => release.certification !== ''
     );
 
-    const ageLimit = releaseWithCert?.certification || undefined;
+    const ageLimit = releaseWithCert?.certification || 'N/A';
 
     // 4. cast
     const castData = creditsResponse.data;
@@ -108,7 +108,7 @@ export const movieService = {
           v.official === true && v.site === 'YouTube' && v.type === 'Trailer'
       ) || [];
 
-    const latestTrailerKey = trailerVideoData.slice(-1)[0].key || undefined;
+    const latestTrailerKey = trailerVideoData.at(-1)?.key || undefined;
 
     return {
       detail: movieDetailData,
