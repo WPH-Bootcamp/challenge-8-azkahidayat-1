@@ -1,11 +1,11 @@
-import FadeOverlay from '@/components/ui/app-ui/FadeOverlay';
-import WatchTrailerButton from '@/components/ui/app-ui/WatchTrailerButton';
+import FadeOverlay from '@/components/common/FadeOverlay';
+import WatchTrailerButton from '@/components/features/movies/ui/WatchTrailerButton';
 import { Button } from '@/components/ui/button';
 import { useTrendingMovies } from '@/hooks/useMovies';
 import { IMAGE_SIZES } from '@/lib/constants';
-import { getImageUrl } from '@/lib/utils';
 import { useNavigate } from 'react-router-dom';
 import HomeHeroSkeleton from './HomeHeroSkeleton';
+import { getImageUrl } from '@/lib/utils/getImageUrl';
 const randomIndex = Math.floor(Math.random() * 20);
 
 const HomeHeroSection = () => {

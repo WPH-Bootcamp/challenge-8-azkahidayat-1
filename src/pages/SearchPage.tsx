@@ -1,5 +1,5 @@
 import EmptyDataPage from '@/components/common/EmptyData';
-import MovieList from '@/components/features/MovieList';
+import MovieList from '@/components/features/movies/components/MovieList';
 import Container from '@/components/layouts/Container';
 import MainLayout from '@/components/layouts/MainLayout';
 import { useSearchMovie } from '@/hooks/useMovies';

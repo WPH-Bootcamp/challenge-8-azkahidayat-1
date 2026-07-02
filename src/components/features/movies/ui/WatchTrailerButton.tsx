@@ -1,10 +1,10 @@
 import { PlayIcon } from 'lucide-react';
-import { Button } from '../button';
-import { getTrailerYoutubeUrl } from '@/lib/utils';
+import { Button } from '../../../ui/button';
 import { useQueryClient } from '@tanstack/react-query';
 import { QUERY_KEYS } from '@/lib/constants';
 import { movieService } from '@/services/movieService';
 import { useState } from 'react';
+import { getTrailerYoutubeUrl } from '@/lib/utils/getTrailerYoutubeUrl';
 
 type WatchTrailerProps = {
   movieId: number;

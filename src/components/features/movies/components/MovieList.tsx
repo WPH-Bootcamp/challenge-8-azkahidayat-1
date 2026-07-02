@@ -1,7 +1,7 @@
 import { IMAGE_SIZES } from '@/lib/constants';
 import MovieListCard from './MovieListCard';
-import { getImageUrl } from '@/lib/utils';
 import type { SearchMovieItem } from '@/types/movie';
+import { getImageUrl } from '@/lib/utils/getImageUrl';
 
 type MovieListProps = {
   movies: SearchMovieItem[];

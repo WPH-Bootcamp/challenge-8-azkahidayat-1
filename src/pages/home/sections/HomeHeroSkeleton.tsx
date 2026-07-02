@@ -1,4 +1,4 @@
-import FadeOverlay from '@/components/ui/app-ui/FadeOverlay';
+import FadeOverlay from '@/components/common/FadeOverlay';
 import { Skeleton } from '@/components/ui/skeleton';
 
 const HomeHeroSkeleton = () => {

@@ -7,8 +7,8 @@ import {
 import { Dialog as SheetPrimitive } from 'radix-ui';
 import { Link } from 'react-router-dom';
 import { MenuIcon, XIcon } from 'lucide-react';
-import { Button } from '../ui/button';
-import Logo from './Logo';
+import { Button } from '../../ui/button';
+import Logo from '../../common/Logo';
 
 type OffCanvasMenuProps = {
   className?: string;

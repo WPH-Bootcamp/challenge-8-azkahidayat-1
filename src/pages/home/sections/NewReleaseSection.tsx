@@ -1,6 +1,6 @@
-import MovieGrid from '@/components/features/MovieGrid';
+import MovieGrid from '@/components/features/movies/components/MovieGrid';
 import Container from '@/components/layouts/Container';
-import FadeOverlay from '@/components/ui/app-ui/FadeOverlay';
+import FadeOverlay from '@/components/common/FadeOverlay';
 import { Button } from '@/components/ui/button';
 import { useNowPlayingMovies } from '@/hooks/useMovies';
 import NewReleaseSkeleton from './NewReleaseSkeleton';

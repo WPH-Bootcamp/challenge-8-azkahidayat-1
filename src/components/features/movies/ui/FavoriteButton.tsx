@@ -1,7 +1,7 @@
 import { HeartIcon, Trash2 } from 'lucide-react';
-import { Button } from '../button';
+import { Button } from '../../../ui/button';
 import type { ComponentProps } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/cn';
 import { useMovieStore } from '@/store/useMovieStore';
 import type { SearchMovieItem } from '@/types/movie';
 import { toast } from 'sonner';

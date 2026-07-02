@@ -1,6 +1,6 @@
-import MovieCardSkeleton from '@/components/features/MovieCardSkeleton';
+import MovieCardSkeleton from '@/components/features/movies/components/MovieCardSkeleton';
 import Container from '@/components/layouts/Container';
-import FadeOverlay from '@/components/ui/app-ui/FadeOverlay';
+import FadeOverlay from '@/components/common/FadeOverlay';
 import { Skeleton } from '@/components/ui/skeleton';
 
 const NewReleaseSkeleton = () => {

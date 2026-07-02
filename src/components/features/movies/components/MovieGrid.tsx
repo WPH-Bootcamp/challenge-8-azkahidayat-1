@@ -1,6 +1,6 @@
 import MovieCard from './MovieCard';
 import { IMAGE_SIZES } from '@/lib/constants';
-import { getImageUrl } from '@/lib/utils';
+import { getImageUrl } from '@/lib/utils/cn';
 import type { SearchMovieItem } from '@/types/movie';
 
 type MovieGridProps = {

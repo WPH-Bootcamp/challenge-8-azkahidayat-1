@@ -2,7 +2,7 @@ import type { SearchSchema } from '@/schemas/searchSchema';
 import { SearchIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { searchSchema } from './../../schemas/searchSchema';
+import { searchSchema } from '../../../schemas/searchSchema';
 import { useNavigate } from 'react-router-dom';
 
 type SearchBarProps = {
@@ -19,7 +19,6 @@ const SearchBar = ({ className = '' }: SearchBarProps) => {
 
   const navigate = useNavigate();
   const onSubmit = (data: SearchSchema) => {
-    console.log(data);
     reset();
     navigate(`/searchMovie?query=${data.keyword}`);
   };

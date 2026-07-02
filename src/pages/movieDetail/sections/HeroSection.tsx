@@ -1,17 +1,13 @@
-import MovieDetailGrid from '@/components/features/MovieDetailGrid';
+import MovieDetailGrid from '@/components/features/movies/components/MovieDetailGrid';
 import Container from '@/components/layouts/Container';
-import FadeOverlay from '@/components/ui/app-ui/FadeOverlay';
-import { statsConfig } from '@/config/stats.config';
+import FadeOverlay from '@/components/common/FadeOverlay';
+import { statsConfig } from '@/data/MovieStats';
 import { IMAGE_SIZES } from '@/lib/constants';
-import { getFormattedDate, getImageUrl } from '@/lib/utils';
-// import type { MovieDetailResponse, MovieFullDetails } from '@/types/movie';
+import { getFormattedDate } from '@/lib/utils/getFormattedDate';
+import { getImageUrl } from '@/lib/utils/getImageUrl';
 import type { MovieFullDetails } from '@/types/movie';
 
 type HeroSectionProps = {
-  // detail: MovieDetailResponse;
-  // genre: string;
-  // ageLimit: string;
-  // videoKey: string | undefined;
   data: MovieFullDetails;
 };
 

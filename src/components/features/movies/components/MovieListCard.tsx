@@ -1,6 +1,6 @@
 import { Star } from 'lucide-react';
-import WatchTrailerButton from '../ui/app-ui/WatchTrailerButton';
-import FavoriteButton from '../ui/app-ui/FavoriteButton';
+import WatchTrailerButton from '../ui/WatchTrailerButton';
+import FavoriteButton from '../ui/FavoriteButton';
 import type { SearchMovieItem } from '@/types/movie';
 import { useNavigate } from 'react-router-dom';
 

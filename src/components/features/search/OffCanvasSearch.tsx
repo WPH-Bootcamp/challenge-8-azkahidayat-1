@@ -7,7 +7,7 @@ import {
 import { Dialog as SheetPrimitive } from 'radix-ui';
 import { ArrowLeft, SearchIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import SearchBar from '@/components/features/SearchBar';
+import SearchBar from '@/components/features/search/SearchBar';
 
 type OffCanvasSearchProps = {
   className?: string;

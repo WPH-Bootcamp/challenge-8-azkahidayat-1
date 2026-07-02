@@ -1,6 +1,6 @@
 import { Skeleton } from '@/components/ui/skeleton';
-import MovieCardSkeleton from '@/components/features/MovieCardSkeleton';
-import FadeOverlay from '@/components/ui/app-ui/FadeOverlay';
+import MovieCardSkeleton from '@/components/features/movies/components/MovieCardSkeleton';
+import FadeOverlay from '@/components/common/FadeOverlay';
 
 const TrendingNowSkeleton = () => {
   return (

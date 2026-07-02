@@ -1,4 +1,4 @@
-import MovieListCardSkeleton from '@/components/features/MovieListCardSkeleton';
+import MovieListCardSkeleton from '@/components/features/movies/components/MovieListCardSkeleton';
 import Container from '@/components/layouts/Container';
 import MainLayout from '@/components/layouts/MainLayout';
 
