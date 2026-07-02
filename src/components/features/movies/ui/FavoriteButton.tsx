@@ -25,14 +25,14 @@ const FavoriteButton = ({ data, className, ...props }: FavoriteButtonProps) => {
         position: 'top-center',
         icon: <Trash2 className='size-5' />,
         duration: 2000,
-        className: '!w-auto !flex !justify-center !items-center',
+        className: 'lg:!w-full !flex !justify-center !items-center ',
       });
     } else {
       addFavorite(data);
       toast.success(`${data.title} Added to Favorites`, {
         position: 'top-center',
         duration: 2000,
-        className: '!w-auto !flex !justify-center !items-center',
+        className: 'lg:!w-full !flex !justify-center !items-center',
       });
     }
   }

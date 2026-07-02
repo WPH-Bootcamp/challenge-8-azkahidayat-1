@@ -4,8 +4,8 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 const HeroSectionSkeleton = () => {
   return (
-    <section id='hero-detail-page'>
-      <div className='relative h-98 lg:h-202.5 -z-1'>
+    <section id='hero-detail-page-skeleton'>
+      <div className='relative h-98 md:h-202.5 -z-1'>
         <Skeleton className='size-full bg-zinc-900 rounded-none' />
         <FadeOverlay
           position='bottom'
@@ -20,9 +20,9 @@ const HeroSectionSkeleton = () => {
           </div>
 
           <div className='flex flex-col gap-xs lg:gap-4xl'>
-            <Skeleton className='h-6 w-full lg:h-16' />
-            <Skeleton className='block h-6 w-full lg:hidden' />
-            <Skeleton className='h-4 w-1/2 lg:h-8' />
+            <Skeleton className='h-6 w-1/2 lg:w-full lg:h-16' />
+            <Skeleton className='block h-6 w-full md:hidden' />
+            <Skeleton className='h-4 w-1/4 lg:h-8' />
           </div>
 
           <div className='flex gap-xl col-span-2 items-center lg:col-span-1 lg:max-w-[288px]'>

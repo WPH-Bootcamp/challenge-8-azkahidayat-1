@@ -9,9 +9,11 @@ import { getImageUrl } from '@/lib/utils/getImageUrl';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeInOut, fadeInOutFromBottom } from '@/motions';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const HomeHeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const navigate = useNavigate();
   const {
     data: trendingData,
@@ -55,10 +57,14 @@ const HomeHeroSection = () => {
           animate='visible'
           exit='exit'
         >
+          {!imageLoaded && (
+            <Skeleton className='size-full bg-zinc-900 rounded-none' />
+          )}
           <img
             src={backdropImage}
             alt={`${featuredMovie.title} image`}
-            className='size-full object-center object-cover'
+            onLoad={() => setImageLoaded(true)}
+            className={`size-full object-center object-cover ${imageLoaded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
           />
           <FadeOverlay
             position='bottom'

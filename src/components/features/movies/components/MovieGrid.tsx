@@ -12,7 +12,7 @@ type MovieGridProps = {
 const MovieGrid = ({ movies }: MovieGridProps) => {
   return (
     <motion.div
-      className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-xl gap-y-4xl lg:gap-x-2xl lg:gap-y-5xl'
+      className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-xl gap-y-4xl lg:gap-x-2xl lg:gap-y-5xl'
       variants={staggerContainer}
       initial='hidden'
       animate='visible'

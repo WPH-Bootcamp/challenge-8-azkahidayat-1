@@ -4,6 +4,8 @@ import FavoriteButton from '../ui/FavoriteButton';
 import type { SearchMovieItem } from '@/types/movie';
 import { useNavigate } from 'react-router-dom';
 import { motion, type Variants } from 'framer-motion';
+import { useState } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 type MovieListCardProps = {
   posterUrl: string;
@@ -11,6 +13,7 @@ type MovieListCardProps = {
 };
 
 const MovieListCard = ({ posterUrl, data }: MovieListCardProps) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
   const navigate = useNavigate();
   function handleClick(movieId: number) {
     navigate(`/movieDetail/${movieId}`);
@@ -27,6 +30,7 @@ const MovieListCard = ({ posterUrl, data }: MovieListCardProps) => {
       transition: { duration: 0.2, ease: 'easeInOut' },
     },
   };
+  // const imageLoaded = false;
   return (
     <motion.div
       className='grid grid-cols-[auto_1fr_auto] gap-x-xl gap-y-3xl lg:gap-x-3xl pb-4xl lg:pb-6xl hover:scale-102 transition-transform duration-300'
@@ -37,7 +41,17 @@ const MovieListCard = ({ posterUrl, data }: MovieListCardProps) => {
         className='max-w-26 rounded-md lg:max-w-45.5 lg:rounded-xl overflow-hidden lg:row-span-2 lg:order-1 cursor-pointer'
         onClick={() => handleClick(data.id)}
       >
-        <img src={posterUrl} alt={`${data.title} image`} />
+        {!imageLoaded && (
+          <Skeleton className='min-w-26 rounded-md lg:min-w-45.5 border min-h-39 lg:min-h-67.5' />
+        )}
+        <img
+          src={posterUrl}
+          alt={`${data.title} image`}
+          onLoad={() => setImageLoaded(true)}
+          className={
+            imageLoaded ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }
+        />
       </div>
 
       {/* grid 2 */}

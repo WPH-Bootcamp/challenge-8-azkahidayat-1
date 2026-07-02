@@ -1,5 +1,5 @@
 import type { MovieFullDetails } from '@/types/movie';
-import { Calendar1Icon, type LucideIcon } from 'lucide-react';
+import { Calendar1Icon, ImageOffIcon, type LucideIcon } from 'lucide-react';
 import FavoriteButton from '../ui/FavoriteButton';
 import StatCard from '@/components/common/StatCard';
 import WatchTrailerButton from '../ui/WatchTrailerButton';
@@ -8,7 +8,7 @@ import { fadeInFromTop, staggerContainer } from '@/motions';
 
 type MovieDetailGridProps = {
   data: MovieFullDetails;
-  posterImageUrl: string;
+  posterImageUrl: string | null;
   formattedDate: string;
   stats: {
     value: string | number;
@@ -32,7 +32,14 @@ const MovieDetailGrid = ({
           className='max-w-29 rounded-xl overflow-hidden lg:max-w-65 lg:row-span-3'
           variants={fadeInFromTop}
         >
-          <img src={posterImageUrl} alt={`${data.detail.title} poster`} />
+          {posterImageUrl ? (
+            <img src={posterImageUrl} alt={`${data.detail.title} poster`} />
+          ) : (
+            <div className='flex flex-col gap-4 justify-center items-center min-w-29 lg:min-w-65 border h-full min-h-42.75 rounded-xl'>
+              <ImageOffIcon />
+              No Image
+            </div>
+          )}
         </motion.div>
 
         <motion.div
@@ -63,8 +70,12 @@ const MovieDetailGrid = ({
           animate='visible'
         >
           {stats.map((stat) => (
-            <motion.div className='w-full' variants={fadeInFromTop}>
-              <StatCard key={stat.title} stat={stat} />
+            <motion.div
+              key={stat.title}
+              className='w-full'
+              variants={fadeInFromTop}
+            >
+              <StatCard stat={stat} />
             </motion.div>
           ))}
         </motion.div>

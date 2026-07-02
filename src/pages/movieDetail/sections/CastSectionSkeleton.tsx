@@ -3,7 +3,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 const CastSectionSkeleton = () => {
   return (
-    <section id='cast-detail-page' className='mb-5xl lg:mb-37.25'>
+    <section id='cast-detail-page-skeleton' className='mb-5xl lg:mb-37.25'>
       <Container className='flex flex-col gap-md lg:gap-3xl'>
         <Skeleton className='h-7 w-48 lg:h-12 lg:w-64' />
         <div className='grid grid-cols-1 gap-xl lg:grid-cols-3 lg:gap-5xl'>
