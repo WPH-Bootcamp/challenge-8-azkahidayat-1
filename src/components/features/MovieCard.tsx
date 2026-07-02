@@ -21,7 +21,7 @@ const MovieCard = ({ movie, imageUrl, index }: MovieCardProps) => {
     >
       <div className='relative rounded-md overflow-hidden'>
         <img src={imageUrl} alt={`${movie.title} image`} />
-        {index && (
+        {index !== undefined && (
           <span className='absolute top-md left-md size-4xl lg:size-6xl lg:left-lg lg:top-lg rounded-full bg-neutral-950/60 border flex justify-center items-center font-semibold text-sm lg:text-lg'>
             {index + 1}
           </span>

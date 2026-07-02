@@ -3,6 +3,7 @@ import Container from '@/components/layouts/Container';
 import FadeOverlay from '@/components/ui/app-ui/FadeOverlay';
 import { Button } from '@/components/ui/button';
 import { useNowPlayingMovies } from '@/hooks/useMovies';
+import NewReleaseSkeleton from './NewReleaseSkeleton';
 
 const NewReleaseSection = () => {
   const {
@@ -13,7 +14,7 @@ const NewReleaseSection = () => {
     hasNextPage,
     isFetchingNextPage,
   } = useNowPlayingMovies();
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <NewReleaseSkeleton />;
   if (error) return <p>{error.message}</p>;
 
   const movies = data?.pages.flatMap((page) => page.results) ?? [];

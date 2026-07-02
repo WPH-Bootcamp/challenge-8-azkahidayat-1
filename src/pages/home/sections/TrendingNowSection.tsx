@@ -6,10 +6,11 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { useTrendingMovies } from '@/hooks/useMovies';
+import TrendingNowSkeleton from './TrendingNowSkeleton';
 
 const TrendingNowSection = () => {
   const { data, isLoading, error } = useTrendingMovies();
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <TrendingNowSkeleton />;
   if (error) return <p>{error.message}</p>;
 
   const movies = data?.results;

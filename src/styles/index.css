@@ -259,6 +259,6 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply font-Poppins;
+    @apply font-Poppins scroll-smooth;
   }
 }
